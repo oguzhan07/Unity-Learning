@@ -22,7 +22,7 @@ Unity sürümü: **6000.4.3f1 (Unity 6.4)**
 ## Yardımcı menü
 
 `UI Toolkit Dersleri` menüsü, ders sahnelerini tek tıkla kurar (kodu: `Editor/DersKurulumu.cs`).
-Sahne zaten varsa üzerine yazmaz, sadece açar.
+Sahne zaten varsa üzerine yazmaz, sadece açar. Play modundayken menü pasiftir.
 
 ## Faydalı pencereler
 

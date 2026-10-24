@@ -1,0 +1,62 @@
+# ===== Satır sonları =====
+# Metin dosyaları repoda LF olarak saklanır, diskte işletim sisteminin
+# alışkanlığına göre (Windows'ta CRLF) açılır. İkili dosyaları Git kendisi tanır.
+* text=auto
+
+*.cs diff=csharp
+
+# ===== Unity YAML dosyaları =====
+# Çakışmalar Unity'nin Smart Merge aracıyla (UnityYAMLMerge) çözülür.
+# Git bu sürücüyü tanısın diye her bilgisayarda bir kez şunları çalıştır
+# (Unity sürümünü değiştirince yolu da güncelle):
+#   git config merge.unityyamlmerge.name "Unity SmartMerge"
+#   git config merge.unityyamlmerge.driver "'C:/Program Files/Unity/Hub/Editor/6000.4.3f1/Editor/Data/Tools/UnityYAMLMerge.exe' merge -p %O %B %A %A"
+# Ayar yapılmazsa Git normal metin birleştirmesini kullanır.
+*.unity              merge=unityyamlmerge
+*.prefab             merge=unityyamlmerge
+*.asset              merge=unityyamlmerge
+*.mat                merge=unityyamlmerge
+*.anim               merge=unityyamlmerge
+*.controller         merge=unityyamlmerge
+*.overrideController merge=unityyamlmerge
+*.physicMaterial     merge=unityyamlmerge
+*.physicsMaterial2D  merge=unityyamlmerge
+*.playable           merge=unityyamlmerge
+*.mask               merge=unityyamlmerge
+*.preset             merge=unityyamlmerge
+*.spriteatlas        merge=unityyamlmerge
+*.terrainlayer       merge=unityyamlmerge
+*.mixer              merge=unityyamlmerge
+*.lighting           merge=unityyamlmerge
+*.renderTexture      merge=unityyamlmerge
+
+# ===== Büyük ikili dosyalar: Git LFS =====
+# Bu dosyaların içeriği repoya değil, Git LFS deposuna gider; repoda yalnızca
+# küçük bir işaretçi kalır. Her bilgisayarda bir kez `git lfs install` gerekir.
+
+# Görseller
+*.png  filter=lfs diff=lfs merge=lfs -text
+*.jpg  filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.psd  filter=lfs diff=lfs merge=lfs -text
+*.tga  filter=lfs diff=lfs merge=lfs -text
+*.tif  filter=lfs diff=lfs merge=lfs -text
+*.tiff filter=lfs diff=lfs merge=lfs -text
+*.exr  filter=lfs diff=lfs merge=lfs -text
+*.hdr  filter=lfs diff=lfs merge=lfs -text
+
+# 3D modeller
+*.fbx   filter=lfs diff=lfs merge=lfs -text
+*.obj   filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
+
+# Ses ve video
+*.wav filter=lfs diff=lfs merge=lfs -text
+*.mp3 filter=lfs diff=lfs merge=lfs -text
+*.ogg filter=lfs diff=lfs merge=lfs -text
+*.mp4 filter=lfs diff=lfs merge=lfs -text
+*.mov filter=lfs diff=lfs merge=lfs -text
+
+# Fontlar
+*.ttf filter=lfs diff=lfs merge=lfs -text
+*.otf filter=lfs diff=lfs merge=lfs -text

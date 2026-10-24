@@ -17,8 +17,14 @@ namespace UIToolkitDersleri.EditorTools
         const string PanelSettingsPath = RootFolder + "/Ortak/DersPanelSettings.asset";
 
         const string Ders01Folder = RootFolder + "/Ders01_IlkEkran";
+        const string Ders01Menu = "UI Toolkit Dersleri/Ders 01 Sahnesini Kur";
 
-        [MenuItem("UI Toolkit Dersleri/Ders 01 Sahnesini Kur")]
+        // Play modunda sahne açılamaz; menü o sırada soluk görünür.
+        // Yeni derslerin menüleri de buraya birer satır olarak eklenir.
+        [MenuItem(Ders01Menu, true)]
+        static bool SahneKurulabilirMi() => !EditorApplication.isPlayingOrWillChangePlaymode;
+
+        [MenuItem(Ders01Menu)]
         public static void KurDers01()
         {
             if (!EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
