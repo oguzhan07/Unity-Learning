@@ -1,0 +1,121 @@
+/* ==========================================================================
+   Ders 01 — Stil dosyası (USS)
+   USS, web'deki CSS'e çok benzer:  seçici { özellik: değer; }
+   ========================================================================== */
+
+/* --- Ekran: tüm alanı kaplar ve kartı ortalar ---------------------------- */
+.screen {
+    flex-grow: 1;                     /* Ebeveyndeki tüm boş alanı doldur */
+    align-items: center;              /* Çocukları yatayda ortala (çapraz eksen) */
+    justify-content: center;          /* Çocukları dikeyde ortala (ana eksen) */
+    background-color: rgb(24, 27, 36);
+}
+
+/* --- Kart ---------------------------------------------------------------- */
+.card {
+    width: 480px;
+    padding: 32px;
+    border-radius: 16px;
+    background-color: rgb(245, 246, 250);
+    transition-property: background-color;   /* Renk değişimi yumuşak olsun */
+    transition-duration: 0.3s;
+}
+
+.title {
+    font-size: 34px;
+    -unity-font-style: bold;          /* Unity'ye özel özellikler "-unity-" ile başlar */
+    color: rgb(24, 27, 36);
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: rgb(105, 110, 125);
+    white-space: normal;              /* Uzun metni alt satıra kaydır */
+    margin-bottom: 24px;
+}
+
+/* --- Sayaç satırı -------------------------------------------------------- */
+.counter-row {
+    flex-direction: row;              /* Varsayılan "column"dur; burada yan yana diziyoruz */
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.counter {
+    font-size: 52px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+    min-width: 140px;
+    color: rgb(24, 27, 36);
+}
+
+/* ".counter.negative" (boşluksuz) = hem counter HEM negative class'ı olan eleman.
+   C#, sayı eksiye düşünce "negative" class'ını ekler. */
+.card .counter.negative {
+    color: rgb(220, 70, 70);
+}
+
+.round-button {
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    border-width: 0;
+    font-size: 28px;
+    -unity-font-style: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(76, 110, 245);
+    transition-property: scale, background-color;
+    transition-duration: 0.12s;
+}
+
+/* Sözde sınıflar (pseudo-class): fareyle üzerine gelme / basılı tutma.
+   Bunlar için hiç C# yazmıyoruz. Başlarındaki ".card", Unity'nin varsayılan
+   temasındaki buton kurallarından daha "özgül" olmamızı sağlar. */
+.card .round-button:hover {
+    background-color: rgb(100, 130, 255);
+}
+
+.card .round-button:active {
+    scale: 0.9 0.9;
+}
+
+/* --- Selamlama ve sıfırla butonu ----------------------------------------- */
+.greeting {
+    font-size: 18px;
+    margin: 8px 0 16px 4px;           /* üst sağ alt sol */
+    color: rgb(76, 110, 245);
+}
+
+.primary-button {
+    height: 44px;
+    margin-top: 20px;
+    border-radius: 8px;
+    border-width: 0;
+    font-size: 16px;
+    -unity-font-style: bold;
+    color: white;
+    background-color: rgb(24, 27, 36);
+}
+
+.card .primary-button:hover {
+    background-color: rgb(55, 60, 78);
+}
+
+/* --- Koyu tema: C# karta "dark" class'ını ekleyince devreye girer -------- */
+.card.dark {
+    background-color: rgb(40, 44, 58);
+}
+
+.card.dark Label {                    /* Koyu karttaki TÜM Label'lar (tip seçici) */
+    color: rgb(230, 232, 240);
+}
+
+.card.dark .subtitle {
+    color: rgb(160, 165, 180);
+}
+
+.card.dark .greeting {
+    color: rgb(140, 165, 255);
+}

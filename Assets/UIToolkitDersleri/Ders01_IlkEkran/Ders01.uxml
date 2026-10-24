@@ -1,0 +1,28 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <!-- Bu dosyanın stilleri. Yol, UXML dosyasına göre görecelidir. -->
+    <Style src="Ders01.uss" />
+
+    <!-- Kök: tüm ekranı kaplar, içindeki kartı ortalar -->
+    <ui:VisualElement name="screen" class="screen">
+
+        <!-- Kart: C# bu elemanı "card" adıyla bulur ve koyu temada "dark" class'ı ekler -->
+        <ui:VisualElement name="card" class="card">
+            <ui:Label text="Merhaba UI Toolkit!" class="title" />
+            <ui:Label text="Bu kart UXML ile kuruldu, USS ile boyandı, C# ile canlandırıldı." class="subtitle" />
+
+            <!-- Sayaç satırı: üç eleman yan yana (USS'te flex-direction: row) -->
+            <ui:VisualElement class="counter-row">
+                <ui:Button name="decrement-button" text="-" class="round-button" />
+                <ui:Label name="counter-label" text="0" class="counter" />
+                <ui:Button name="increment-button" text="+" class="round-button" />
+            </ui:VisualElement>
+
+            <ui:TextField name="name-field" label="Adın" placeholder-text="Buraya yaz..." />
+            <ui:Label name="greeting-label" text="Bir isim yaz..." class="greeting" />
+
+            <ui:Toggle name="dark-mode-toggle" label="Koyu tema" />
+            <ui:Button name="reset-button" text="Sıfırla" class="primary-button" />
+        </ui:VisualElement>
+
+    </ui:VisualElement>
+</ui:UXML>
